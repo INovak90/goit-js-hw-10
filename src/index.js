@@ -10,7 +10,9 @@ refs.search.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(e) {
   const text = e.target.value.trim();
   refs.countryList.innerHTML = '';
-  if (!text) {
+
+  if (text === '') {
+    refs.countryInfo.innerHTML = '';
     return;
   }
   fetchCountries(text)
